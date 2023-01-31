@@ -249,7 +249,3 @@ if (!nativeBinding) {
 const { test } = nativeBinding
 
 module.exports.test = test
-
-test().then(() => {
-  console.log('done');
-});
