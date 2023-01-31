@@ -1,0 +1,23 @@
+[package]
+edition = "2021"
+name = "napi-stdout"
+version = "0.0.1"
+
+[lib]
+bench = false
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
+napi = { version = "2.10.13", default-features = false, features = [
+  "napi4",
+  "tokio_rt",
+] }
+napi-derive = "2.10.0"
+tokio = { version = "1", features = ["process", "rt", "macros"] }
+
+[build-dependencies]
+napi-build = "2.0.1"
+
+[profile.release]
+lto = true
